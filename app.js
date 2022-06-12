@@ -13,7 +13,7 @@ const port = "3000"
 const S3 = new AWS.S3()
 
 // Create an S3 bucket
-app.put("/creates3", (req, res) =>{
+app.post("/creates3", (req, res) => {
 
     const params = {
         Bucket: "bucketnames3",
@@ -24,11 +24,27 @@ app.put("/creates3", (req, res) =>{
     }
 
     S3.createBucket(params, (error, response) => {
-        if (error){
+        if (error) {
             console.log(error, error.stack)
         }
-        else{
+        else {
+            console.log("Bucket has been created", response)
+        }
+    })
+})
+
+
+// Get all buckets
+app.get("/", (req, res) => {
+
+    const params = {}
+    S3.listBuckets(params, (error, response) => {
+        if (!error) {
+            console.log("Buckets:")
             console.log(response)
+        }
+        else {
+            console.log(error, error.stack)
         }
     })
 })
@@ -41,6 +57,6 @@ app.put("/creates3", (req, res) =>{
 
 
 // Initiate the server
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
 })
