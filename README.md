@@ -3,14 +3,14 @@ This is an overview of how you can config and access your AWS resources through 
 
 The AWS_SDK for Javascript is being used to leverage the easy of use.
 
-#Dependencies
+# Dependencies
 1. AWS-SDK
 2. Express
 3. Node
 
 Please note I used Express to create the endpoints but you can use a library/framework of your own.
 
-#Installation
+# Installation
 First install Node from https://nodejs.org and select package depending on the Operationg System you are running on your machine.
 Installing Node will install both the runtime as well as the Node package manager by default, so you do not have to go install the pkg manager. Isn't that cool :).
 
