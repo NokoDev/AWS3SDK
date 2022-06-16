@@ -49,6 +49,22 @@ app.get("/", (req, res) => {
     })
 })
 
+app.post("/deletebucket", (req, res) =>{
+    //The values to be included here can be retrieved from the post request from the interface
+    const params = {
+        Bucket: "BucketName",
+
+    }
+    S3.deleteBucket(params, (error, response) =>{
+        if(error){
+            console.log(error, error.stack)
+        }
+        else {
+            console.log(response)
+        }
+    })
+})
+
 
 
 
