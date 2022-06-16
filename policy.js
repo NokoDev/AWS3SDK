@@ -4,4 +4,3 @@
 
 const policy = "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"id-1\", \"Effect\": \"Allow\", \"Principal\": {\"AWS\": \"arn:aws:iam::ACCOUNTID:IAMUSERNAME\"}, \"Action\": [\"s3:PutObjectAcl\"], \"Resource\": [\"arn:aws:s3:::BUCKETNAME/*\"]}]}"
 
-module.exports.policy
