@@ -8,6 +8,8 @@ const app = express()
 // This will running locally
 const port = "3000"
 
+const errorHandler = require("./errorHandler")
+
 
 // Invoke the S3 module from the overall package
 const S3 = new AWS.S3()
@@ -67,7 +69,17 @@ app.post("/deletebucket", (req, res) =>{
     })
 })
 
+//Get Bucket location
 
+
+
+app.post("/locatebucket", (req, res) =>{
+    const params = {
+        Bucket: "BucketName"
+    }
+
+    S3.getBucketLocation(params, errorHandler)
+})
 
 
 
