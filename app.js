@@ -49,6 +49,8 @@ app.get("/", (req, res) => {
     })
 })
 
+
+//Delete a provided bucket name
 app.post("/deletebucket", (req, res) =>{
     //The values to be included here can be retrieved from the post request from the interface
     const params = {
