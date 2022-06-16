@@ -80,15 +80,27 @@ app.post("/locatebucket", (req, res) =>{
     S3.getBucketLocation(params, errorHandler)
 })
 
+
+// Apply policy to a bucket
+
 app.post("/bucket/:id/policy", (req, res) =>{
 
     const params = {
-        Bucket: "mogaus3bucketv12",
+        Bucket: "BUCKETNAME",
         Policy: "{\"Version\": \"2012-10-17\", \"Statement\": [{\"Sid\": \"id-1\", \"Effect\": \"Allow\", \"Principal\": {\"AWS\": \"arn:aws:iam::ACCOUNTID:IAMUSERNAME\"}, \"Action\": [\"s3:PutObjectAcl\"], \"Resource\": [\"arn:aws:s3:::BUCKETNAME/*\"]}]}"
     }
 
     S3.putBucketPolicy(params, errorHandler)
 
+})
+
+// Get policies applied to a bucket
+
+app.get("/getbucketpolicy", (req, res) =>{
+
+    S3.getBucketPolicy({
+        Bucket: "BUCKETNAME"
+    }, errorHandler)
 })
 
 
